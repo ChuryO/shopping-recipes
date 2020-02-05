@@ -1,1 +1,12 @@
-<p>recipe-item works!</p>
+<a href="#" class="list-group-item list-group-item-action clearfix" (click)="onSelected()">
+    <div class="float-left">
+        <h5 class="mb-1">{{ recipe.name }}</h5>
+        <p class="mb-1">{{ recipe.description }}</p>
+    </div>
+    <div class="float-right my-auto align-middle">
+        <img src="{{ recipe.imagePath }}"
+             alt="{{ recipe.name }}"
+             class="img-fluid"
+             style="max-height: 50px;">
+    </div>
+</a>
