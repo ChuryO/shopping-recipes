@@ -17,4 +17,5 @@ export class HeaderComponent implements OnInit {
     onSelect(param: string) {
         this.featureSelected.emit(param);
     }
+
 }
