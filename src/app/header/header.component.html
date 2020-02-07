@@ -18,10 +18,10 @@
                         </li>
                     </ul>
                     <ul class="navbar-nav mt-2 mt-lg-0">
-                        <li class="nav-item dropdown">
+                        <li class="nav-item dropdown" appDropdown #ref="appDropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button">Manage
                                 <span class="caret"></span></a>
-                            <div class="dropdown-menu dropdown-menu-right">
+                            <div class="dropdown-menu dropdown-menu-right" [ngClass]="{'show':ref.isOpen}">
                                 <a class="dropdown-item" href="#">Action</a>
                                 <a class="dropdown-item" href="#">Action</a>
                             </div>

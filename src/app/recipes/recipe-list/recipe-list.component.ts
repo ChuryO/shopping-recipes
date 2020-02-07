@@ -7,7 +7,8 @@ import {RecipeModel} from '../recipe.model';
     styleUrls: ['./recipe-list.component.scss']
 })
 export class RecipeListComponent implements OnInit {
-    @Output() recipeWasSelected = new EventEmitter<RecipeModel>();
+    @Output() recipeWasSelected: any = new EventEmitter<RecipeModel>();
+    // tslint:disable-next-line:typedef
     private simplyPath = 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Recipe_logo.jpeg/600px-Recipe_logo.jpeg';
     recipes: RecipeModel[] = [
         new RecipeModel('A Test Recipe', 'This is simply a test recipe', this.simplyPath),
@@ -17,10 +18,10 @@ export class RecipeListComponent implements OnInit {
     constructor() {
     }
 
-    ngOnInit() {
+    ngOnInit(): void {
     }
 
-    onRecipeSelected(recipe: RecipeModel) {
+    onRecipeSelected(recipe: RecipeModel): any {
         this.recipeWasSelected.emit(recipe);
     }
 }
