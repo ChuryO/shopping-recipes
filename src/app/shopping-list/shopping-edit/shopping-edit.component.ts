@@ -1,5 +1,6 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
+import {ShoppingListService} from '../shopping-list.service';
 import {IngredientModel} from '../../partials/ingredient.model';
 
 @Component({
@@ -7,22 +8,18 @@ import {IngredientModel} from '../../partials/ingredient.model';
     templateUrl: './shopping-edit.component.html',
     styleUrls: ['./shopping-edit.component.scss']
 })
-export class ShoppingEditComponent implements OnInit {
-    @Output() newIngredient = new EventEmitter<IngredientModel>();
-    ingredientForm = new FormGroup({
+export class ShoppingEditComponent {
+    ingredientForm: any = new FormGroup({
         ingredientName: new FormControl(),
         ingredientAmount: new FormControl()
     });
 
-    constructor() {
+    constructor(private shoppingListService: ShoppingListService) {
     }
 
-    ngOnInit() {
-    }
-
-    onSubmit() {
+    onSubmit(): void {
         const name = this.ingredientForm.value.ingredientName;
         const amount = parseInt(this.ingredientForm.value.ingredientAmount, 10);
-        this.newIngredient.emit(new IngredientModel(name, amount));
+        this.shoppingListService.addIngredient(new IngredientModel(name, amount));
     }
 }
